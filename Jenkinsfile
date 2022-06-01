@@ -4,7 +4,7 @@ pipeline{
         stage('stage1'){
             steps{
                 CatchError(buildResult: 'UNSTABLE',message:'ERROR',stageResult:'FAILURE'){
-                    sh 'exit1'
+                    sh 'exit0'
                 }
             }
         }
@@ -13,5 +13,6 @@ pipeline{
                 echo 'Running stage2'
             }
         }
+        
     }
 }
