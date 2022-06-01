@@ -1,18 +1,14 @@
-pipeline{
-    agent any
+pipeline {
+    agent agents
     stages{
         stage('stage1'){
-            steps{
-                CatchError(buildResult: 'UNSTABLE',message:'ERROR',stageResult:'FAILURE'){
-                    sh 'exit0'
-                }
-            }
+            steps{echo 'stage1'}
         }
         stage('stage2'){
-            steps{
-                echo 'Running stage2'
-            }
+            steps{echo 'stage2'}
         }
-        
+    }
+    post{
+        always{echo 'post stage'}
     }
 }
