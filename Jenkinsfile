@@ -1,21 +1,15 @@
 pipeline {
     agent any
-    environment { DEPLOY_TO = 'qa'}
+    parameters {
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+    }
     stages {
         stage('Stage1') {
             when {
-              environment name: 'DEPLOY_TO', value: 'qa'
+              expression { return params.TOGGLE }
             }
             steps {
-              echo 'Running Stage1 for QA'
-            }
-        }
-       stage('Stage2') {
-            when {
-              environment name: 'DEPLOY_TO', value: 'production'
-            }
-            steps {
-              echo 'Running Stage2 for production'
+                  echo 'Testing'
             }
         }
     }
