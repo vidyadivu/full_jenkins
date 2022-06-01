@@ -1,18 +1,22 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('stage1'){
-            steps{
-                CatchError(buildResult: 'UNSTABLE',message:'ERROR',stageResult:'FAILURE'){
-                    sh 'exit0'
-                }
+    environment { DEPLOY_TO = 'qa'}
+    stages {
+        stage('Stage1') {
+            when {
+              environment name: 'DEPLOY_TO', value: 'qa'
+            }
+            steps {
+              echo 'Running Stage1 for QA'
             }
         }
-        stage('stage2'){
-            steps{
-                echo 'Running stage2'
+       stage('Stage2') {
+            when {
+              environment name: 'DEPLOY_TO', value: 'production'
+            }
+            steps {
+              echo 'Running Stage2 for production'
             }
         }
-        
     }
 }
