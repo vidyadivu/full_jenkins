@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent any
     parameters {
         choice choices: ["dev","stage","prod"], description: 'My env', name: 'env'
@@ -6,6 +6,7 @@ pipeline{
     stages {
 
         stage ('Running with environments'){
+          
             steps {
                 script {
                     if (params.env== 'dev'){
@@ -20,6 +21,7 @@ pipeline{
                 }
             }
         }
+    }
     post {
         success{
             script{
