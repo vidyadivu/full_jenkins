@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters{
-        choice choices: ["dev","stage","prod"], description: "My env", name: "env"
+        choice choices: ["dev","stage","prod"], description: 'My env', name: 'env'
     }
     stages('Running environment variables'){
         stage{
@@ -12,6 +12,9 @@ pipeline{
                     }
                     if(params.env=='prod'){
                         echo 'this is prod env'
+                    }
+                    if(params.env=='stage'){
+                        echo 'this is stage env'
                     }
                 }
             }
