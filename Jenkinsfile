@@ -1,35 +1,21 @@
 pipeline {
     agent any
-    parameters {
-        choice choices: ["dev","stage","prod"], description: 'My env', name: 'env'
-    }
-    stages {
-
-        stage ('Running with environments'){
-          
-            steps {
-                script {
-                    if (params.env== 'dev'){
-                        echo 'if it is true.print dev environment'
+    stages{
+        stage('port 8080 testing'){
+            steps{
+                script{
+                    if(env.HUDSON_URL.contains('8080')){
+                        echo 'Jenkins is running on 8080'
                     }
-                    else {
-                        echo ' print prod env'
-                    
+                    else{
+                        echo 'Jenkins is not running on 8080'
                     }
                 }
             }
         }
     }
-    post {
-        success{
-            script{
-                echo 'dev env is success'
-            }
-        }
-        failure{
-            script{
-                echo 'prod env is failed'
-            }
-        }
-    }
 }
+                 
+        
+                
+            
