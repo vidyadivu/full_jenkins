@@ -20,5 +20,12 @@ pipeline{
                 }
             }
         }
+        post{
+            success{
+                script{
+                    echo "${params.env} environment is success"
+                }
+            }
+        }
     }
 }
