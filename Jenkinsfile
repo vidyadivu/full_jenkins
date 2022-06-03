@@ -23,7 +23,12 @@ pipeline {
     post {
         success{
             script{
-                echo "${params.env} is success"
+                echo 'dev env is success'
+            }
+        }
+        failure{
+            script{
+                echo 'prod env is failed'
             }
         }
     }
