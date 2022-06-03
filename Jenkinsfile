@@ -1,5 +1,5 @@
 pipeline {
-    agent agents
+    agent { label 'agents'}
     stages{
         stage('stage1'){
             steps{echo 'stage1'}
