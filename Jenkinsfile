@@ -9,10 +9,10 @@ pipeline{
             steps {
                 script {
                     if (params.env== 'dev'){
-                        echo 'this is dev env'
+                        echo "${params.env} environment"
                     }
                     if (params.env== 'prod'){
-                        echo 'this is prod env'
+                        echo "${params.env} env"
                     }
                     if (params.env== 'stage'){
                         echo 'this is stage env'
