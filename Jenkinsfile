@@ -1,4 +1,5 @@
 pipeline {
+
     agent any
     environment { DEPLOY_TO = 'qa'}
     stages {
@@ -17,6 +18,3 @@ pipeline {
             steps {
               echo 'Running Stage2 for production'
             }
-        }
-    }
-}
