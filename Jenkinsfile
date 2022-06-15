@@ -2,10 +2,10 @@ pipeline {
     agent any
     stages{
         stage('stage1'){
-            steps{sh 'sleep 10'}
+            steps{sh 'sleep 15'}
         }
         stage('stage2'){
-            steps{sh 'sleep 10'}
+            steps{sh 'sleep 20'}
         }
         stage('stage3'){
             parallel{
