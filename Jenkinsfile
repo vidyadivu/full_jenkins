@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     if (params.env== 'dev'){
-                        echo 'if it is true.print dev environment'
+                        echo 'if it is true then print dev environment'
                     }
                     else {
                         echo ' print prod env'
